@@ -3,8 +3,7 @@ title: 'Reproducible Research Peer Assessment 1: Activity Monitoring Data'
 author: "cbcoursera1"
 date: "Wednesday, April 15, 2015"
 output:
-  html_document:
-    self_contained: no
+  html_document: default
 ---
 
 ## Loading and preprocessing the data
@@ -259,7 +258,7 @@ for (x in 1:nrow(dataclean)) {
 ## This was a tough one
 ```
 
-Let's do the same analysis we did in #1 above, but against our clean dataset.
+Let's do the same analysis we did in #1 above, but against our adjusted dataset.
 
 
 ```r
@@ -285,9 +284,9 @@ And then plot it on a histogram, along with our original data.
 ```r
 par(mfrow = c(1,2))
 
-hist(dailysteps$tsteps)
+hist(dailysteps$tsteps, main = "Original Steps by Interval")
 
-hist(cdailysteps$tsteps)
+hist(cdailysteps$tsteps, main = "Adjusted Steps by Interval")
 ```
 
 ![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png) 
@@ -304,11 +303,11 @@ print(paste("Original Mean:", mean(dailysteps$tsteps, na.rm = T)))
 ```
 
 ```r
-print(paste("Clean Mean:", mean(cdailysteps$tsteps, na.rm = T)))
+print(paste("Adjusted Mean:", mean(cdailysteps$tsteps, na.rm = T)))
 ```
 
 ```
-## [1] "Clean Mean: 10766.1886792453"
+## [1] "Adjusted Mean: 10766.1886792453"
 ```
 
 ```r
@@ -320,11 +319,11 @@ print(paste("Original Median:", median(dailysteps$tsteps, na.rm = T)))
 ```
 
 ```r
-print(paste("Clean Median:", median(cdailysteps$tsteps, na.rm = T)))
+print(paste("Adjusted Median:", median(cdailysteps$tsteps, na.rm = T)))
 ```
 
 ```
-## [1] "Clean Median: 10766.1886792453"
+## [1] "Adjusted Median: 10766.1886792453"
 ```
 
 Looks like what we would expect. The distribution is roughly similar, but we
